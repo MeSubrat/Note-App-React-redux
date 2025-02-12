@@ -1,0 +1,90 @@
+.header{
+    width: 100vw;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid rgb(194, 192, 192);
+    cursor: default;
+}
+.header button{
+    background-color: black;
+    color: white;
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-elements input{
+    height: 30px;
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid rgb(172, 172, 172);
+    outline: none;
+    padding-left: 10px;
+}
+.input-elements button{
+    background-color: white;
+    border:1px solid black;
+    color: black;
+    transition: background-color 0.3s linear;
+}
+.input-elements button:hover{
+    background-color: black;
+    color: white;
+    
+}
+
+.popup-window{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.636);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pop-up-content{
+    background: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.pop-up-content input{
+    border: none;
+    width: 300px;
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+    border-bottom: 1px solid rgb(157, 156, 156);
+}
+.pop-up-content textarea{
+    width: 300px;
+    height: 100px;
+    border: 1px solid rgb(157, 156, 156);
+    padding-left: 10px;
+    padding-top: 10px;
+    outline: none;
+}
+.pop-up-content button{
+    background-color: black;
+    color: white;
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
