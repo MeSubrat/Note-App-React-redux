@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './EditNote.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { noteActions } from '../store/NoteSlice'
-import editSlice, { editActions } from '../store/EditSlice'
+import { editActions } from '../store/EditSlice'
 function EditNote() {
     const isModalOpen = useSelector((state) => state.editSlice.isModalOpen)
     const currentId = useSelector(state => state.editSlice.currentId);
@@ -28,9 +28,6 @@ function EditNote() {
         }))
         dispatch(editActions.closeEditModal());
     }
-    // const handleCancle=()=>{
-    //     dispatch(editActions.closeEditModal())
-    // }
 
 
     return (
@@ -43,7 +40,6 @@ function EditNote() {
                             <textarea name="desc" id="desc" placeholder='Write description' value={eDescription} onChange={(e) => setEDescription(e.target.value)}></textarea>
 
                             <button onClick={() => handleEdit()}>Save</button>
-                            {/* <button onClick={()=>handleCancle()}>Cancel</button> */}
                         </div>
                     </div>
                 )

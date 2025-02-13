@@ -1,16 +1,15 @@
-import { useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Content from './components/Content'
-import EditNote from './components/EditNote'
+import { useSelector } from 'react-redux'
 
 
 function App() {
+  const notes = useSelector(state => state.notes.notes)
   return (
     <>
       <Header />
-      <Content />
-      
+      <Content notes={notes}/>
     </>
   )
 }
