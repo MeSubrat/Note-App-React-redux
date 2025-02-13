@@ -2,14 +2,20 @@ import './App.css'
 import Header from './components/Header'
 import Content from './components/Content'
 import { useSelector } from 'react-redux'
-
+import { useEffect, useState } from 'react'
 
 function App() {
-  const notes = useSelector(state => state.notes.notes)
+  let allNotes = useSelector(state => state.notes.notes)
+  useEffect(()=>{
+    if(allNotes){
+      localStorage.setItem('notes',JSON.stringify(allNotes))
+    }
+  },[allNotes])
+
   return (
     <>
       <Header />
-      <Content notes={notes}/>
+      <Content notes={allNotes} />
     </>
   )
 }

@@ -3,39 +3,41 @@ import { createSlice, nanoid } from "@reduxjs/toolkit";
 const noteSlice = createSlice({
     name: 'notes',
     initialState: {
-        notes: [
-            {
-                id: nanoid(),
-                date: new Date().toLocaleString('hi-IN'),
-                title: "My first Note",
-                description: "Hey this is my first note.",
-                isEdited: false
-            },
-            // {
-            //     id: nanoid(),
-            //     date: new Date().toLocaleString('hi-IN'),
-            //     title: "Shopping List",
-            //     description: "Buy milk, eggs, and bread."
-            // },
-            // {
-            //     id: nanoid(),
-            //     date: new Date().toLocaleString('hi-IN'),
-            //     title: "Meeting Reminder",
-            //     description: "Team meeting at 3 PM tomorrow."
-            // },
-            // {
-            //     id: nanoid(),
-            //     date: new Date().toLocaleString('hi-IN'),
-            //     title: "Project Ideas",
-            //     description: "AI-powered chatbot and quiz generator."
-            // },
-            // {
-            //     id: nanoid(),
-            //     date: new Date().toLocaleString('hi-IN'),
-            //     title: "Workout Plan",
-            //     description: "Morning jog and evening gym session."
-            // }
-        ],
+        notes: JSON.parse(localStorage.getItem('notes')),
+        // [
+        //     {
+        //         id: nanoid(),
+        //         date: new Date().toLocaleString('hi-IN'),
+        //         title: "My first Note",
+        //         description: "Hey this is my first note.",
+        //         isEdited: false
+        //     },
+        //     {
+        //         id: nanoid(),
+        //         date: new Date().toLocaleString('hi-IN'),
+        //         title: "Shopping List",
+        //         description: "Buy milk, eggs, and bread."
+        //     },
+        //     {
+        //         id: nanoid(),
+        //         date: new Date().toLocaleString('hi-IN'),
+        //         title: "Meeting Reminder",
+        //         description: "Team meeting at 3 PM tomorrow."
+        //     },
+        //     {
+        //         id: nanoid(),
+        //         date: new Date().toLocaleString('hi-IN'),
+        //         title: "Project Ideas",
+        //         description: "AI-powered chatbot and quiz generator."
+        //     },
+        //     {
+        //         id: nanoid(),
+        //         date: new Date().toLocaleString('hi-IN'),
+        //         title: "Workout Plan",
+        //         description: "Morning jog and evening gym session."
+        //     }
+        // ]
+
         dummyNotes: []
     },
     reducers: {
@@ -59,7 +61,7 @@ const noteSlice = createSlice({
 
             if (note.title.trim() !== action.payload.acceptedTitle.trim()) {
                 note.title = action.payload.acceptedTitle;
-                updated = true; 
+                updated = true;
             }
             if (note.description.trim() !== action.payload.acceptedDescription.trim()) {
                 note.description = action.payload.acceptedDescription;
