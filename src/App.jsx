@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 function App() {
-  let allNotes = useSelector(state => state.notes.notes)
-  useEffect(()=>{
-    if(allNotes){
-      localStorage.setItem('notes',JSON.stringify(allNotes))
+  localStorage.clear()
+  let allNotes = useSelector(state => state.notes.notes) || []
+  useEffect(() => {
+    if (allNotes) {
+      if(allNotes.length>0)localStorage.setItem('notes', JSON.stringify(allNotes))
     }
-  },[allNotes])
+  }, [allNotes])
 
   return (
     <>
