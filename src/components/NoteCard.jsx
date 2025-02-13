@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { noteActions } from '../store/NoteSlice'
 import { editActions } from '../store/EditSlice';
 
-function NoteCard( {title, description, date, id} ) {
+function NoteCard( {title, description, date, id, isEdited} ) {
     const dispatch=useDispatch();
     const handleEdit=()=>{
         dispatch(editActions.setCurrentId(id))
@@ -19,7 +19,14 @@ function NoteCard( {title, description, date, id} ) {
             <div className='card'>
                 <div className='sec-1'>
                     <h4>{title}</h4>
-                    <p>{date}</p>
+                    <div className='date-edited-or-not'>
+                        <p>{date}</p>
+                        {
+                            
+                            isEdited?<p>Edited</p>:null
+                        }
+                    </div>
+                    
                 </div>
                 <p className='desc'>{description}</p>
                 <div className="btns">

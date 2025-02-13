@@ -12,7 +12,7 @@ function Content({notes}) {
         notes.map((note) => (
           <div key={note.id}>
             {!isOpen ?
-              <NoteCard title={note.title} description={note.description} date={note.date} id={note.id} /> : null}
+              <NoteCard title={note.title} description={note.description} date={note.date} id={note.id} isEdited={note.isEdited} /> : null}
           </div>
         )) : <div style={{
           height:'100vh',width:'100vw',display:'flex',justifyContent:'center',alignItems:'center'

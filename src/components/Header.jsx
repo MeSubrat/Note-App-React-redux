@@ -58,7 +58,7 @@ function Header() {
 
                             <button onClick={(title || desc) ? () => handleSave() : () => cloeModal()}>
                                 {
-                                    (title || desc) ? 'Save' : 'X'
+                                    (title || desc) ? 'Save' : 'CLose'
                                 }
                             </button>
                         </div>
