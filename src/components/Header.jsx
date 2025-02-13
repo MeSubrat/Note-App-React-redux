@@ -54,7 +54,7 @@ function Header() {
                     <div className='popup-window'>
                         <div className='pop-up-content'>
                             <input type="text" id='title' placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                            <textarea name="desc" id="desc" placeholder='Write description' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
+                            <textarea name="desc" id="desc" placeholder='Write description' wrap='soft' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 
                             <button onClick={(title || desc) ? () => handleSave() : () => cloeModal()}>
                                 {

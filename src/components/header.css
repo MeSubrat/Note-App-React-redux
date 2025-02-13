@@ -22,7 +22,7 @@
 
 .input-elements input{
     height: 30px;
-    width: 250px;
+    width: 400px;
     border: none;
     border-bottom: 1px solid rgb(172, 172, 172);
     outline: none;
@@ -76,6 +76,9 @@
     padding-left: 10px;
     padding-top: 10px;
     outline: none;
+    resize: vertical;
+    overflow-x: hidden;
+    
 }
 .pop-up-content button{
     background-color: black;
