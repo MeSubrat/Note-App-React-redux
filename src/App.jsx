@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 function App() {
-  localStorage.clear()
   let allNotes = useSelector(state => state.notes.notes) || []
   useEffect(() => {
     if (allNotes) {

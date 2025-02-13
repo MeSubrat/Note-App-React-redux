@@ -6,11 +6,10 @@ import EditNote from './EditNote'
 
 function Content({ notes }) {
   const isOpen = useSelector(state => state.ModalSlice.isOpen)
-  const validNotes = notes && Array.isArray(notes) ? notes : []
   return (
     <div className='notes-container'>
-      {validNotes.length!==0 || validNotes ?
-        validNotes.map((note) => (
+      {notes.length ?
+        notes.map((note) => (
           <div key={note.id}>
             {!isOpen ?
               <NoteCard title={note.title} description={note.description} date={note.date} id={note.id} isEdited={note.isEdited} /> : null}

@@ -7,7 +7,7 @@ function EditNote() {
     const isModalOpen = useSelector((state) => state.editSlice.isModalOpen)
     const currentId = useSelector(state => state.editSlice.currentId);
     const dispatch = useDispatch()
-    const notes = useSelector(state => state.notes.notes)
+    const notes = useSelector(state => state.notes.notes) || []
     const [eTitle, setETitle] = useState('')
     const [eDescription, setEDescription] = useState('')
     const note = notes.find(note => note.id === currentId)
