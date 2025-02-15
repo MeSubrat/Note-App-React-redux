@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './header.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { modalActions } from '../store/ModalSlice';
@@ -10,14 +10,20 @@ function Header() {
     const [inputText, setInputText] = useState('');
     const isOpen = useSelector((state) => state.ModalSlice.isOpen)
     const dispatch = useDispatch();
+    const inputTitle = useRef();
     let notes = useSelector(state => state.notes.notes)
+    const modalRef = useRef(null);
+    const popUpRef = useRef(null)
 
 
 
+    const focusInputTitle = () => {
+        inputTitle.current.focus()
+    }
     const openModal = () => {
         dispatch(modalActions.openModal())
     }
-    const cloeModal = () => {
+    const closeModal = () => {
         dispatch(modalActions.closeModal())
     }
     const handleSave = () => {
@@ -35,6 +41,17 @@ function Header() {
     useEffect(() => {
         handleSearch()
     }, [inputText])
+    useEffect(() => {
+        if (isOpen) {
+            focusInputTitle()
+        }
+    }, [isOpen])
+
+    const handleOutsideCLick = (e) => {
+        if (modalRef.current && modalRef.current.contains(e.target) && !popUpRef.current.contains(e.target)) {
+            closeModal();
+        }
+    }
 
     return (
         <>
@@ -51,12 +68,12 @@ function Header() {
 
             {
                 isOpen && (
-                    <div className='popup-window'>
-                        <div className='pop-up-content'>
-                            <input type="text" id='title' placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <div className='popup-window' ref={modalRef} onClick={(e) => handleOutsideCLick(e)}>
+                        <div className='pop-up-content' ref={popUpRef}>
+                            <input type="text" id='title' placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} ref={inputTitle} />
                             <textarea name="desc" id="desc" placeholder='Write description' wrap='soft' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 
-                            <button onClick={(title || desc) ? () => handleSave() : () => cloeModal()}>
+                            <button onClick={(title || desc) ? () => handleSave() : () => closeModal()}>
                                 {
                                     (title || desc) ? 'Save' : 'CLose'
                                 }
