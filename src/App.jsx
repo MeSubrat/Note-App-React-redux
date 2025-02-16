@@ -6,9 +6,12 @@ import { useEffect, useState } from 'react'
 
 function App() {
   let allNotes = useSelector(state => state.notes.notes) || []
+
+  
+
   useEffect(() => {
     if (allNotes) {
-      if(allNotes.length>0)localStorage.setItem('notes', JSON.stringify(allNotes))
+      if (allNotes.length > 0) localStorage.setItem('notes', JSON.stringify(allNotes))
     }
   }, [allNotes])
 

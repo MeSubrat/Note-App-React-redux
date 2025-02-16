@@ -1,7 +1,29 @@
+:root{
+    --border-color:black;
+    --date-info-color:gray;
+    --partition-color:rgb(187, 183, 183);
+    --button-background:black;
+    --button-border:black;
+    --button-text-color:white;
+    --button-hover-font-color:black;
+    --button-hover-background:white;
+    --button-hover-border:rgb(116, 114, 114);
+}
+[theme="dark"]{
+    --border-color:white;
+    --date-info-color: lightgray;
+    --partition-color:rgb(241, 241, 241);
+    --button-background:white;
+    --button-border:white;
+    --button-text-color:black;
+    --button-hover-font-color:white;
+    --button-hover-background:black;
+    --button-hover-border:rgb(188, 186, 186);
+}
 .card{
     height: 150px;
     width: 235px;
-    border: 1px solid black;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -13,7 +35,7 @@
 }
 .sec-1 p{
     font-size: 0.6rem;
-    color: gray;
+    color: var(--date-info-color);
 }
 .sec-1{
     width: 100%;
@@ -21,7 +43,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 5px;
-    border-bottom: 1px solid rgb(187, 183, 183);
+    border-bottom: 1px solid var(--partition-color);
 }
 .desc{
     padding-top: 5px;
@@ -39,20 +61,49 @@
 .btns button{
     height: 30px;
     width: 70px;
-    background-color: black;
-    border:1px solid black;
-    color: white;
+    background-color: var(--button-background);
+    border:1px solid var(--button-background);
+    color: var(--button-text-color);
     transition: background-color 0.25s linear;
     font-size: 0.7rem;
     font-weight: bold;
     border-radius: 5px;
 }
 .btns button:hover{
-    background-color: white;
-    border: 1px solid rgb(116, 114, 114);
-    color: black;
+    background-color: var(--button-hover-background);
+    border: 1px solid var(--button-hover-border);
+    color: var(--button-hover-font-color);
 }
 .date-edited-or-not{
     display: flex;
     flex-direction: column;
+}
+@media(max-width:510px){
+    .card{
+        height: 120px;
+        width: 180px;
+        font-size: 0.8rem;
+    }
+    .card button{
+        width:60px;
+        height: 25px;
+        font-size: 0.7rem;
+    }
+}
+@media(max-width:400px){
+    .card{
+        width: 290px;
+        height: 140px;
+        font-size: 1.1rem;
+    }
+    .card button{
+        width: 80px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+@media (max-width:761px){
+    .card{
+        width: 233px;
+    }
 }

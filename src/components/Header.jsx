@@ -16,7 +16,6 @@ function Header() {
     const popUpRef = useRef(null)
 
 
-
     const focusInputTitle = () => {
         inputTitle.current.focus()
     }
@@ -53,6 +52,24 @@ function Header() {
         }
     }
 
+    const setDarkMode = () => {
+        document.querySelector('body').setAttribute('theme', 'dark')
+    }
+    const setLightMode = () => {
+        document.querySelector('body').setAttribute('theme', 'light')
+    }
+
+    const handleThemeChange = (e) => {
+        const theme = e.target.value;
+        // console.log(theme)
+        if (theme === 'dark') {
+            setDarkMode()
+        }
+        if (theme === 'light') {
+            setLightMode()
+        }
+    }
+
     return (
         <>
             <div className='header'>
@@ -64,13 +81,18 @@ function Header() {
                 <button onClick={() => openModal()}>
                     Create
                 </button>
+                <select name="dropdown" id="choose-theme" onChange={handleThemeChange}>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
             </div>
 
             {
                 isOpen && (
                     <div className='popup-window' ref={modalRef} onClick={(e) => handleOutsideCLick(e)}>
                         <div className='pop-up-content' ref={popUpRef}>
-                            <input type="text" id='title' placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} ref={inputTitle} />
+                            <input type="text" id='title'
+                            placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} ref={inputTitle} />
                             <textarea name="desc" id="desc" placeholder='Write description' wrap='soft' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 
                             <button onClick={(title || desc) ? () => handleSave() : () => closeModal()}>
