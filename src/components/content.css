@@ -5,9 +5,34 @@
     /* flex-direction: column; */
     flex-wrap: wrap;
 }
+h3{
+    padding: 10px;
+}
 @media(max-width:400px){
     .notes-container{
         align-items: center;
         justify-content: center;
     }
 }
+@media(max-width:480px){
+    h3{
+        font-size: 1.2rem;
+        text-wrap: wrap;
+        text-align: center;
+        
+    }
+}
+@media(max-width:410px){
+    h3{
+        font-size: 1rem;
+        text-wrap: wrap;
+        text-align: center;
+    }
+}
+/* @media(max-width:320px){
+    h3{
+        font-size: 0.9rem;
+        text-wrap: wrap;
+        text-align: center;
+    }
+} */
