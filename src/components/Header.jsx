@@ -59,16 +59,32 @@ function Header() {
         document.querySelector('body').setAttribute('theme', 'light')
     }
 
-    const handleThemeChange = (e) => {
-        const theme = e.target.value;
-        // console.log(theme)
-        if (theme === 'dark') {
+    // const handleThemeChange = (e) => {
+    //     const theme = e.target.value;
+    //     // console.log(theme)
+    //     if (theme === 'dark') {
+    //         setDarkMode()
+    //     }
+    //     if (theme === 'light') {
+    //         setLightMode()
+    //     }
+    // }
+    const [choosenTheme,setChoosenTheme]=useState(() => localStorage.getItem('theme') || 'light');
+    console.log(choosenTheme)
+
+    useEffect(()=>{
+        localStorage.setItem('theme',choosenTheme)
+    },[choosenTheme])
+    useEffect(()=>{
+        
+        if (choosenTheme  === 'dark') {
             setDarkMode()
         }
-        if (theme === 'light') {
+        if (choosenTheme  === 'light') {
             setLightMode()
         }
-    }
+    },[choosenTheme ])
+
 
     return (
         <>
@@ -81,8 +97,8 @@ function Header() {
                 <button onClick={() => openModal()}>
                     Create
                 </button>
-                <select name="dropdown" id="choose-theme" className='theme-select' onChange={handleThemeChange}>
-                    <option value="light">Light</option>
+                <select name="dropdown" id="choose-theme" className='theme-select' onChange={(e)=>setChoosenTheme(e.target.value)} value={choosenTheme}>
+                    <option value="light" selected >Light</option>
                     <option value="dark">Dark</option>
                 </select>
             </div>
