@@ -81,7 +81,7 @@ function Header() {
                 <button onClick={() => openModal()}>
                     Create
                 </button>
-                <select name="dropdown" id="choose-theme" onChange={handleThemeChange}>
+                <select name="dropdown" id="choose-theme" className='theme-select' onChange={handleThemeChange}>
                     <option value="light">Light</option>
                     <option value="dark">Dark</option>
                 </select>
@@ -92,7 +92,7 @@ function Header() {
                     <div className='popup-window' ref={modalRef} onClick={(e) => handleOutsideCLick(e)}>
                         <div className='pop-up-content' ref={popUpRef}>
                             <input type="text" id='title'
-                            placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} ref={inputTitle} />
+                                placeholder='Enter Title' value={title} onChange={(e) => setTitle(e.target.value)} ref={inputTitle} />
                             <textarea name="desc" id="desc" placeholder='Write description' wrap='soft' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 
                             <button onClick={(title || desc) ? () => handleSave() : () => closeModal()}>

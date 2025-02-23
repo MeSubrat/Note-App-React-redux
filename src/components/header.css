@@ -8,9 +8,10 @@
     --button_background_color: black;
     --button_text_color: white;
     --shadow: rgba(0, 0, 0, 0.3);
-    --search_input_background:white;
+    --search_input_background: white;
 }
-[theme="dark"]{
+
+[theme="dark"] {
     --body_background: black;
     --header_text: white;
     --body_text_color: white;
@@ -20,12 +21,14 @@
     --button_background_color: white;
     --button_text_color: black;
     --shadow: rgba(47, 46, 46, 0.3);
-    --search_input_background:black;
+    --search_input_background: black;
 }
-*{
+
+* {
     transition: all 0.025s linear;
 }
-body{
+
+body {
     background-color: var(--body_background);
     color: var(--body_text_color);
 }
@@ -39,7 +42,8 @@ body{
     border-bottom: 1px solid var(--pop_up_content_area_border);
     cursor: default;
 }
-.header h2{
+
+.header h2 {
     color: var(--header_text);
 }
 
@@ -54,7 +58,8 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-.header input[type='text']{
+
+.header input[type='text'] {
     background-color: var(--search_input_background);
     color: var(--header_text);
 }
@@ -102,13 +107,15 @@ body{
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    
+
 }
-.popup-window .pop-up-content input{
+
+.popup-window .pop-up-content input {
     background-color: var(--search_input_background);
     color: var(--header_text);
 }
-.popup-window .pop-up-content textarea{
+
+.popup-window .pop-up-content textarea {
     background-color: var(--search_input_background);
     color: var(--header_text);
 }
@@ -146,62 +153,102 @@ body{
     cursor: pointer;
 }
 
-@media (max-width:715px){
-    .header{
+.theme-select {
+    width: 80px;
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    /* color: white; */
+    /* background-color: black; */
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
+    transition: all 0.3s ease;
+
+}
+
+.theme-select:hover {
+    color: white;
+    background-color: black;
+}
+
+.theme-select option {
+    background-color: white;
+    transition: all 1s ease;
+    color: black;
+}
+
+@media (max-width:715px) {
+    .header {
         width: 100vw;
     }
-    .header h2{
+
+    .header h2 {
         font-size: 1.2rem;
     }
-    .header input{
+
+    .header input {
         width: 200px;
     }
 }
-@media(max-width:500px){
-    .header{
+
+@media(max-width:500px) {
+    .header {
         width: 100vw;
     }
-    .header h2{
+
+    .header h2 {
         font-size: 1rem;
     }
-    .header input{
+
+    .header input {
         width: 100px;
     }
 }
-@media(max-width:400px){
-    .header{
+
+@media(max-width:400px) {
+    .header {
         width: 100vw;
     }
-    .header h2{
+
+    .header h2 {
         font-size: 0.8rem;
     }
-    .header input{
+
+    .header input {
         width: 80px;
         font-size: 0.65rem;
     }
-    .header button{
+
+    .header button {
         width: 60px;
         font-size: 0.8rem;
     }
-    .popup-window .pop-up-content{
+
+    .popup-window .pop-up-content {
         width: 250px;
     }
-    .popup-window .pop-up-content input{
+
+    .popup-window .pop-up-content input {
         width: 200px;
         font-size: 0.7rem;
     }
-    .popup-window .pop-up-content textarea{
+
+    .popup-window .pop-up-content textarea {
         width: 200px;
         font-size: 0.7rem;
         height: 80px;
     }
-    .popup-window .pop-up-content button{
+
+    .popup-window .pop-up-content button {
         height: 20px;
         width: 60px;
         border-radius: 2px;
         font-size: 0.7rem;
     }
-    .popup-window{
+
+    .popup-window {
         height: 100vh;
     }
 
