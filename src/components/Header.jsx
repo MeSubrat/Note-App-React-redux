@@ -70,7 +70,6 @@ function Header() {
     //     }
     // }
     const [choosenTheme,setChoosenTheme]=useState(() => localStorage.getItem('theme') || 'light');
-    console.log(choosenTheme)
 
     useEffect(()=>{
         localStorage.setItem('theme',choosenTheme)
